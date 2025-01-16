@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./css/App.css";
+import "./css/Actividad.css";
 import Boton from "./Boton"; // importamos el boton reutilizable
 import InputField from "./InputField"; //importamos el componente input reutilizable
 
@@ -32,7 +32,8 @@ const ActividadForm: React.FC = () => {
     useEffect(() => {
         const fetchClientes = async () => {
             try {
-                const response = await fetch('http://localhost:5000/clientes');
+                //const response = await fetch('http://localhost:5000/clientes');
+                const response = await fetch('http://192.168.1.90:5000/clientes');
                 if (response.ok) {
                     const data: Cliente[] = await response.json();
                     setClientes(data);
@@ -96,7 +97,8 @@ const ActividadForm: React.FC = () => {
         formData.append('urlFoto', actividad.urlFoto || ''); // Agregamos la URL de la foto (puede ser vacía)
 
         try {
-            const response = await fetch('http://localhost:5000/actividad', {
+            //const response = await fetch('http://localhost:5000/actividad', {
+                const response = await fetch('http://192.168.1.90:5000/actividad', {
                 method: 'POST',
                 body: formData, // Enviamos el FormData con el archivo PDF y la URL
             });

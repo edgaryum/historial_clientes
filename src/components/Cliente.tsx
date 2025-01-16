@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './css/App.css';
+import './css/Clientes.css';
 import Boton from "./Boton";
 import InputField from "./InputField";
 
@@ -36,7 +36,8 @@ const NewCliente: React.FC = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/clientes', {
+            //const response = await fetch('http://localhost:5000/clientes', {
+            const response = await fetch('http://192.168.1.90:5000/clientes', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(cliente),
@@ -67,7 +68,7 @@ const NewCliente: React.FC = () => {
                     onValueChange={handleValueChange} // Conversión explícita
                     required
                 />
-                 <InputField
+                <InputField
                     label="Telefono"
                     name="telefono"
                     type="text"
@@ -75,7 +76,7 @@ const NewCliente: React.FC = () => {
                     onValueChange={handleValueChange} // Conversión explícita
                     required
                 />
-                 <InputField
+                <InputField
                     label="Correo"
                     name="correo"
                     type="mail"

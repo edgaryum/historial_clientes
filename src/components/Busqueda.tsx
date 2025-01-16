@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./css/App.css";
+import "./css/Actividad.css";
 import Boton from "./Boton";
 import EditarEvento from "./EditarEvento";
 
@@ -32,7 +32,8 @@ const Busqueda: React.FC<BusquedaProps> = ({ rol }) => {
   useEffect(() => {
     const fetchClientes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/clientes");
+        //const response = await fetch("http://localhost:5000/clientes");
+        const response = await fetch("http://192.168.1.90:5000/clientes");
         if (response.ok) {
           const data: Cliente[] = await response.json();
           setClientes(data);
@@ -66,7 +67,8 @@ const Busqueda: React.FC<BusquedaProps> = ({ rol }) => {
 
     try {
       const queryParams = new URLSearchParams(criterio as Record<string, string>).toString();
-      const response = await fetch(`http://localhost:5000/actividades?${queryParams}`);
+      //const response = await fetch(`http://localhost:5000/actividades?${queryParams}`);
+      const response = await fetch(`http://192.168.1.90:5000/actividades?${queryParams}`);
 
       if (response.ok) {
         const data: Actividad[] = await response.json();
@@ -93,13 +95,12 @@ const Busqueda: React.FC<BusquedaProps> = ({ rol }) => {
   };
 
   return (
-    <div className="busqueda-container">
+    <div className="actividad-form-container">
       <h2>Buscar Actividades</h2>
       <div>
         <label>
           Cliente:
           <select
-            className="select"
             name="cliente"
             value={criterio.cliente}
             onChange={(e) => handleValueChange("cliente", e.target.value)}
@@ -128,7 +129,6 @@ const Busqueda: React.FC<BusquedaProps> = ({ rol }) => {
       {mensaje && <p className="mensaje">{mensaje}</p>}
       {actividadParaEditar ? (
         <div>
-          <h3>Editar Actividad</h3>
           <EditarEvento
             actividad={actividadParaEditar}
             onClose={() => setActividadParaEditar(null)}
@@ -149,7 +149,8 @@ const Busqueda: React.FC<BusquedaProps> = ({ rol }) => {
                   <div>
                     {actividad.pdf && (
                       <a
-                        href={`http://localhost:5000/${actividad.pdf}`}
+                        //href={`http://localhost:5000/${actividad.pdf}`}
+                        href={`http://192.168.1.90:5000/${actividad.pdf}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

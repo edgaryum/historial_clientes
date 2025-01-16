@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Boton from "./Boton";
-import "./css/App.css";
+import "./css/Actividad.css";
+import InputField from "./InputField"; // Importa InputField
 
 interface Cliente {
     id: number;
@@ -30,7 +31,8 @@ const EditarEvento: React.FC<{
     useEffect(() => {
         const fetchClientes = async () => {
             try {
-                const response = await fetch("http://localhost:5000/clientes");
+                //const response = await fetch("http://localhost:5000/clientes");
+                const response = await fetch("http://192.168.1.90:5000/clientes");
                 if (!response.ok) throw new Error("Error al cargar los clientes.");
                 const data: Cliente[] = await response.json();
                 setClientes(data);
@@ -43,7 +45,16 @@ const EditarEvento: React.FC<{
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        setForm((prev) => ({ ...prev, [name]: name === "cliente" ? (value ? Number(value) : null)  : value,
+        setForm((prev) => ({
+            ...prev,
+            [name]: name === "cliente" ? (value ? Number(value) : null) : value,
+        }));
+    };
+
+    const handleValueChange = (name: string, value: string | number) => {
+        setForm((prev) => ({
+            ...prev,
+            [name]: name === "cliente" ? (value ? Number(value) : null) : value,
         }));
     };
 
@@ -57,7 +68,8 @@ const EditarEvento: React.FC<{
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/actividades/${form.id}`, {
+            //const response = await fetch(`http://localhost:5000/actividades/${form.id}`, {
+                const response = await fetch(`http://192.168.1.90:5000/actividades/${form.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
@@ -80,13 +92,12 @@ const EditarEvento: React.FC<{
     };
 
     return (
-        <div className="editar-actividad">
+        <div className="actividad-form-container">
             <h3>Editar Actividad</h3>
             <form onSubmit={handleSubmit}>
                 <label>
                     Cliente:
                     <select
-                        className="select"
                         name="cliente"
                         value={form.cliente}
                         onChange={handleChange}
@@ -99,18 +110,27 @@ const EditarEvento: React.FC<{
                         ))}
                     </select>
                 </label>
-                <label>
-                    Descripción:
-                    <textarea name="descripcion" value={form.descripcion} onChange={handleChange} />
-                </label>
-                <label>
-                    Fecha:
-                    <input type="date" name="fecha" value={form.fecha} onChange={handleChange} />
-                </label>
-                <label>
-                    URL Foto:
-                    <textarea name="urlFoto" value={form.urlFoto ?? ""} onChange={handleChange} />
-                </label>
+                <InputField
+                    label="Descripción"
+                    name="descripcion"
+                    type="textarea"
+                    value={form.descripcion}
+                    onValueChange={handleValueChange}
+                />
+                <InputField
+                    label="Fecha"
+                    name="fecha"
+                    type="date"
+                    value={form.fecha}
+                    onValueChange={handleValueChange}
+                />
+                <InputField
+                    label="URL Foto"
+                    name="urlFoto"
+                    type="text"
+                    value={form.urlFoto || ""}
+                    onValueChange={handleValueChange}
+                />
                 <div style={{ marginTop: "1rem" }}>
                     <Boton texto="Guardar" tipoBoton="submit" tipo="primary" />
                     <Boton texto="Cancelar" tipo="secondary" onClick={onClose} />

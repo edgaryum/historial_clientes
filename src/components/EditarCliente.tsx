@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Boton from "./Boton";
 import InputField from "./InputField";
-import './css/App.css';
+import './css/Clientes.css';
 
 interface Cliente {
     id: number;
@@ -20,7 +20,8 @@ const EditarClienteForm: React.FC<{ clienteid: number; onClose: () => void }> = 
     useEffect(() => {
         const fetchCliente = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/clientes/${clienteid}`);
+                //const response = await fetch(`http://localhost:5000/clientes/${clienteid}`);
+                const response = await fetch(`http://192.168.1.90:5000/clientes/${clienteid}`);
                 if (!response.ok) {
                     throw new Error("Error al obtener el cliente");
                 }
@@ -53,7 +54,8 @@ const EditarClienteForm: React.FC<{ clienteid: number; onClose: () => void }> = 
         }
 
         try {
-            const response = await fetch(`http://localhost:5000/clientes/${cliente.id}`, {
+            //const response = await fetch(`http://localhost:5000/clientes/${cliente.id}`, {
+                const response = await fetch(`http://192.168.1.90:5000/clientes/${cliente.id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(cliente),
@@ -75,7 +77,7 @@ const EditarClienteForm: React.FC<{ clienteid: number; onClose: () => void }> = 
     if (!cliente) return <p>Error al cargar los datos del cliente</p>;
 
     return (
-        <div className="clientes-container">
+        <div>
             <form onSubmit={handleSubmit}>
             <InputField
                     label="Nombre"

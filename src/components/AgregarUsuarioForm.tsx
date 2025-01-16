@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './css/App.css';
 import Boton from './Boton';
+import InputField from './InputField';
 
 const AgregarUsuarioForm: React.FC = () => {
   const [id, setId] = useState('');
@@ -9,6 +10,25 @@ const AgregarUsuarioForm: React.FC = () => {
   const [role, setRole] = useState(''); // Nuevo estado para el rol
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+
+  const handleValueChange = (name: string, value: string) => {
+    switch (name) {
+      case 'id':
+        setId(value);
+        break;
+      case 'nombre':
+        setNombre(value);
+        break;
+      case 'password':
+        setPassword(value);
+        break;
+      case 'role':
+        setRole(value);
+        break;
+      default:
+        break;
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +39,8 @@ const AgregarUsuarioForm: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/usuarios', {
+      //      const response = await fetch('http://localhost:5000/usuarios', {
+      const response = await fetch('http://192.168.1.90:5000/usuarios', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,43 +65,40 @@ const AgregarUsuarioForm: React.FC = () => {
   };
 
   return (
-    <div className='usuario-container'>
+    <div>
       <h2>Agregar Usuario</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Cedula:
-          <input
-            type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Nombre:
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Contraseña:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <br />
+        <InputField
+          label="Cédula"
+          name="id"
+          type="text"
+          value={id}
+          onValueChange={handleValueChange}
+          placeholder="Ingrese la cédula"
+          required
+        />
+        <InputField
+          label="Nombre"
+          name="nombre"
+          type="text"
+          value={nombre}
+          onValueChange={handleValueChange}
+          placeholder="Ingrese el nombre"
+          required
+        />
+        <InputField
+          label="Contraseña"
+          name="password"
+          type="password"
+          value={password}
+          onValueChange={handleValueChange}
+          placeholder="Ingrese la contraseña"
+          required
+        />
         <label>
           Rol:
           <select
-          className='select'
+            className='select'
             value={role}
             onChange={(e) => setRole(e.target.value)}
             required
@@ -91,7 +109,6 @@ const AgregarUsuarioForm: React.FC = () => {
             <option value="lector">Lector</option>
           </select>
         </label>
-        <br />
         <Boton texto="Agregar usuario" onClick={handleSubmit} tipo="primary" />
       </form>
 

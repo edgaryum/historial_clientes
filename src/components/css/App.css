@@ -1,4 +1,4 @@
-/* Estilos generales*/
+/* app.css */
 body {
   margin: 0;
   padding: 0;
@@ -8,12 +8,76 @@ body {
   color: #333;
 }
 
-/*titulos*/
 h1, h2, h3 {
   margin: 0 0 1rem;
   color: #007bff;
   text-align: center;
   font-weight: 500;
+}
+
+button, form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+button:hover, form button:hover {
+  background-color: #0056b3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  gap: 1rem; /* Espacio entre el logo y el título */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  margin-bottom: 1rem; /* Separación con el resto del contenido */
+  border-bottom: 2px solid #ccc; /* Línea divisoria opcional */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en móviles */
+}
+
+.logo {
+  width: 10rem; /* Tamaño ajustado del logo */
+  height: auto;
+}
+
+/* Títulos */
+.app-title {
+  font-size: 2rem;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 0.5rem 1rem; /* Ajusta el padding para reducir el tamaño del fondo */
+  display: inline-block; /* Hace que el fondo se ajuste al contenido */
+  margin-left: 15rem;
+}
+
+.clientes-title, .usuario-title {
+  font-size: 2rem;
+  color: #007bff;
+  text-align: center;
+  margin-top: 3rem;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 0.5rem 1rem; /* Ajusta el padding para reducir el tamaño del fondo */
+  display: inline-block; /* Hace que el fondo se ajuste al contenido */
+  margin-left: 28rem;
 }
 
 /* Contenedor principal */
@@ -32,581 +96,25 @@ h1, h2, h3 {
   position: relative;
 }
 
-.sesion-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 1rem;
-  margin-top: 30px;
-  background-color: #ffffff;
-  border-radius: 8px;
-}
-
-.clientes-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: #ffffff;
-}
-
-/* Títulos */
-.app-title, .clientes-title {
-  font-size: 2rem;
-  color: #007bff;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Botones */
-button, form button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 0 auto; /* Esto asegura que se centren si no usan todo el ancho */
-  display: block;
-  
-}
-
-button:hover, form button:hover {
-  background-color: #0056b3;
-}
-
-.boton {
-  display: block;
-  width: 30%;
-  padding: 0.5rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.boton.primary {
-  background-color: #007bff;
-  color: white;
-}
-
-.boton.secondary {
-  background-color: #6c757d;
-  color: white;
-}
-
-.boton:hover {
-  opacity: 0.9;
-}
-
-/* Formularios */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;  
-
-}
-
-form input, form select, form textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s ease;
-}
-
-form input:focus, form select:focus, form textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Sección principal (ClientesFront)*/ 
-.clientes-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .clientes-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Tablas */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-table th {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-}
-
-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-}
-
-/* Mensajes */
-.mensaje, .mensaje-exito {
-  font-size: 1rem;
-  text-align: center;
-  color: green;
-}
-
-.error, .mensaje-error {
-  font-size: 1rem;
-  text-align: center;
-  color: red;
-}
-
-/* Sombra para contenedores */
-.component-container, .actividad-form-container, .usuario-container, .busqueda-container {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  align-items: center;
-
-}
-
-/* Estilos para componentes */
-.component-container {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  width: 100%;
-  max-width: 800px;
-}
-
-/* Formularios */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-form input, form select, form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-form input:focus, form select:focus, form textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-form button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #0056b3;
-}
-
-/* Tablas (si se usan para listar datos) */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-}
-
-table th, table td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  text-align: left;
-}
-
-table th {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Listas desplegables */
-select {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Mensajes */
-.mensaje {
-  font-size: 1rem;
-  text-align: center;
-  color: green;
-}
-
-.error {
-  color: red;
-  text-align: center;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .app-container {
-      padding: 0.5rem;
-  }
-
-  .app-title {
-      font-size: 1.5rem;
-  }
-
-  form input, form select, form textarea {
-      font-size: 0.9rem;
-  }
-}
-
-/*busqueda e iniciar sesion */
-.busqueda-container,
-.actividad-form-container,
-.usuario-container {
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-  margin-top: 10px;
-  text-align: left;
-  display: block;
-  flex-wrap: wrap;
-}
-
-.busqueda-container h2,
-.sesion-container h2{
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-  color: #007bff;
-}
-
-.busqueda-container label,
-.sesion-container label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.busqueda-container select,
-.busqueda-container input,
-.sesion-container select,
-.sesion-container input {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.busqueda-container select:focus,
-.busqueda-container input:focus,
-.sesion-container select:focus,
-.sesion-container input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-.resultados {
-  margin-top: 1.5rem;
-}
-
-.resultados h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #007bff;
-}
-
-.resultados ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.resultados li {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #f8f9fa;
-}
-
-.resultados li strong {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.resultados li a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.resultados li a:hover{
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .sesion-container,
-  .busqueda-container {
-      padding: 1.5rem;
-      max-width: 90%;
-  }
-
-  .sesion-container h2,
-  .busqueda-container h2 {
-      font-size: 1.2rem;
-  }
-
-  .resultados li {
-      padding: 0.8rem;
-  }
-}
-
-/*actividades */
-
-.actividad-form-container h2 {
-  font-size: 1.5rem;
-  color: #007bff;;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.actividad-form-container label {
-  display: block;
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.actividad-form-container input,
-.actividad-form-container select,
-.actividad-form-container textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 0.9rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-}
-
-.actividad-form-container textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.select {
-    font-size: 0.9rem;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.actividad-form-container .boton-primary {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.actividad-form-container .boton-primary:hover {
-  background-color: #0056b3;
-}
-
-.mensaje-error {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.mensaje-exito {
-  color: green;
-  font-size: 0.9rem;
-  margin-top: 10px;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .actividad-form-container {
-      max-width: 90%;
-      padding: 1.5rem;
-  }
-
-  .actividad-form-container h2 {
-      font-size: 1.25rem;
-  }
-
-  .actividad-form-container input,
-  .actividad-form-container select,
-  .actividad-form-container textarea {
-      font-size: 0.85rem;
-  }
-
-  .actividad-form-container .boton-primary {
-      font-size: 0.9rem;
-  }
-}
-
-.usuario-container h2 {
-  font-size: 1.5rem;
-  color: #007bff;
-  font-weight: bold;
-}
-
-.usuario-container label {
-  display: block;
-  font-size: 0.9rem;
-  color: #555;
-  text-align: left;
-}
-
-.usuario-container input,
-.usuario-container select {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.usuario-container select {
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.usuario-container p {
-  font-size: 0.9rem;
-}
-
-.usuario-container p[style*="red"] {
-  color: red;
-  font-weight: bold;
-}
-
-.usuario-container p[style*="green"] {
-  color: green;
-  font-weight: bold;
-}
-
-.usuario-container .boton-primary:hover {
-  background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-  .usuario-container {
-      max-width: 90%;
-      padding: 1.5rem;
-  }
-
-  .usuario-container h2 {
-      font-size: 1.25rem;
-  }
-
-  .usuario-container input,
-  .usuario-container select {
-      font-size: 0.8rem;
-  }
-
-  .usuario-container .boton-primary {
-      font-size: 0.95rem;
-  }
-}
-
-/* Título */
-.clientes-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-
-/* Sección principal: Diseño en columnas */
-.clientes-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */ 
-  gap: 40px; /* Incrementa el espacio entre las columnas */
-  padding: 20px; /* Espacio interno adicional */
-}
-
-/* Estilo de los contenedores */
-.clientes-section > div {
-  padding: 20px;
-  background-color: #ffffff; /* Fondo blanco */
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Espacio inferior entre contenedores */
-}
-
-/* Opcional: Línea divisoria entre columnas (para pantallas grandes) */
-.clientes-section::after {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 2px;
-  background-color: #ccc;
-  margin: 0 auto;
-}
-
-/* Diseño responsivo */
-@media (max-width: 768px) {
-  .clientes-section {
-    grid-template-columns: 1fr; /* Una sola columna */
-    gap: 20px; /* Espacio entre filas */
-  }
-  
-  .clientes-section::after {
-    display: none; /* Quita la línea divisoria en móviles */
-  }
-}
-
 .user-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
   position: absolute; /* Posiciona el contenedor de manera absoluta */
-  top: 10px; /* Alinea el contenedor en la parte superior */
-  right: 10px; /* Alinea el contenedor a la derecha */
+  top: 25px; /* Alinea el contenedor en la parte superior */
+  right: 20px; /* Alinea el contenedor a la derecha */
   width: 400px;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-left: auto; /* Empuja el contenedor hacia el borde derecho */
 }
 
 .username {
-  /*display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  font-size: 16px;*/
-  margin-right: 10px;
+  margin-right: 5px;
+  background-color: #0056b3;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color:#fff
 }
 
 .logout-button:hover {
@@ -621,4 +129,98 @@ select {
   color: white;
   border: none;
   cursor: pointer;
+  margin-right: 5px;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-left: 1em;
 }
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .app-container {
+      padding: 0.5rem;
+  }
+
+  .header-container {
+    flex-direction: column; /* Cambia a diseño en columna */
+    align-items: center; /* Centra los elementos en móviles */
+    gap: 1rem; /* Aumenta el espacio entre elementos */
+  }
+
+  .app-title, .clientes-title, .usuario-title {
+    font-size: 1.5rem; /* Reduce el tamaño del título */
+    margin: 0; /* Elimina márgenes innecesarios */
+  }
+
+  .user-container {
+    justify-content: center; /* Centra el usuario en móviles */
+    margin-left: 0; /* Asegura que no haya desplazamiento lateral */
+  }
+
+  .user-container {
+      position: static; /* Cambiar de absoluta a estática para móviles */
+      display: flex;
+      flex-direction: column; /* Alinear los elementos en columna */
+      align-items: flex-start; /* Alinearlos al inicio */
+      gap: 0.5rem; /* Espacio entre los elementos */
+      margin-bottom: 1rem; /* Crear espacio debajo del contenedor */
+  }
+}
+
+/* Estilos base para el botón */
+.boton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  margin-left: 1em;
+  color: white;
+}
+
+/* Estilos para el tipo "primary" */
+.boton.primary {
+  background-color: #007bff;
+}
+
+.boton.primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.boton.primary:active {
+  background-color: #003f7f;
+  transform: scale(0.95);
+}
+
+/* Estilos para el tipo "secondary" */
+.boton.secondary {
+  background-color: #6c757d;
+}
+
+.boton.secondary:hover {
+  background-color: #545b62;
+  transform: scale(1.05);
+}
+
+.boton.secondary:active {
+  background-color: #3d4145;
+  transform: scale(0.95);
+}
+
+/* Opcional: Estilo para botones deshabilitados */
+.boton:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  transform: none;
+}
+

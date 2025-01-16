@@ -1,0 +1,94 @@
+/* cliente.css */
+.clientes-container {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .clientes-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    gap: 40px; /* Espacio entre columnas */
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .clientes-section {
+      grid-template-columns: 1fr; /* Ajuste a una columna en dispositivos pequeños */
+    }
+  }
+  
+  .clientes-container h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  .clientes-container label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .clientes-container input {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    margin-bottom: 1rem;
+  }
+  
+  .clientes-container select,
+  .clientes-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  .input-field-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  .input-field-container label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .input-field-container input,
+  .input-field-container textarea {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .input-field-container input:focus,
+  .input-field-container textarea:focus {
+    border-color: #007bff;
+  }
+  
+  .input-field-container textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  

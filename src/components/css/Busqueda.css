@@ -1,0 +1,104 @@
+.buscar-vigilante-container {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.buscar-vigilante-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.buscar-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.buscar-form input {
+    width: 60%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.buscar-form button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buscar-form button:hover {
+    background-color: #0056b3;
+}
+
+.hoja-de-vida {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.foto-container {
+    flex: 1;
+    text-align: center;
+    margin-left: 15em;
+}
+
+.foto-container img {
+    width: 120px;
+    height: 160px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    object-fit: cover;
+}
+
+.datos-persnales {
+    flex: 2;
+    margin-left: 20px;
+}
+
+.datos-persnales h3 {
+    margin: 0 0 10px;
+}
+
+.info-contacto {
+    margin-top: 20px;
+}
+
+.info-contacto h4 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.tabla-hoja-de-vida {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tabla-hoja-de-vida th,
+  .tabla-hoja-de-vida td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tabla-hoja-de-vida th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }

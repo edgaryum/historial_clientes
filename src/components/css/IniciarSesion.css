@@ -1,0 +1,29 @@
+/* iniciar_sesion.css */
+.sesion-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    align-items: center;
+  }
+  
+  .sesion-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #007bff;
+  }
+  
+  .sesion-container input,
+  .sesion-container select {
+    width: 90%;
+    padding: 0.4rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+  

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Boton from "./Boton";
-import './css/App.css';
+import './css/IniciarSesion.css';
 
 interface IniciarSesionProps {
     onLogin: (role: string, username: string) => void; // Modificado para pasar nombre de usuario
@@ -23,7 +23,8 @@ const IniciarSesion: React.FC<IniciarSesionProps> = ({ onLogin }) => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/login", {
+            //const response = await fetch("http://localhost:5000/login", {
+                const response = await fetch("http://192.168.1.90:5000/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(criterio),
@@ -57,7 +58,7 @@ const IniciarSesion: React.FC<IniciarSesionProps> = ({ onLogin }) => {
     };
 
     return (
-        <div className="sesion-container">
+        <div>
             <h2>Iniciar Sesión</h2>
             <div>
                 <label>Cédula: </label>

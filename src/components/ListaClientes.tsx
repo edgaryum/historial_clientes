@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EditarClienteForm from "./EditarCliente";
-import './css/App.css';
+import './css/Clientes.css';
 import Boton from "./Boton";
 
 interface Cliente {
@@ -21,7 +21,8 @@ const ListaClientes: React.FC = () => {
     useEffect(() => {
         const fetchClientes = async () => {
             try {
-                const response = await fetch("http://localhost:5000/clientes");
+                //const response = await fetch("http://localhost:5000/clientes");
+                const response = await fetch("http://192.168.1.90:5000/clientes");
                 if (!response.ok) {
                     throw new Error("Error al cargar los clientes");
                 }
